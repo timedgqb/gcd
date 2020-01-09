@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  请输入第一个整数：<input type="text" id="x" type="number">
+  <br>
+  请输入第二个整数：<input type="text" id="y" type="number">
+  <br>
+  <input type="button" value="计算" onclick="getResult()">
+  <br>
+  两个整数的最大公约数为 <span id="result"></span>
+  <script>
+    function getResult(result) {
+      var x = document.getElementById('x').value
+      var y = document.getElementById('y').value
+      var result = gcd(x, y)
+      document.getElementById('result').innerHTML = result
+    }
+    function gcd(x, y) {
+      if (y === 0) {
+        return x;
+      }
+      var r = x % y;
+      return arguments.callee(y, r);
+    }
+  </script>
+</body>
+
+</html>
